@@ -6,6 +6,8 @@ const forecast = require('./utils/forecast')
 
 // define paths for express config
 const app = express()
+const port = process.env.PORT || 3000
+
 const publicDirectoryPath = path.join(__dirname, '../public')
 
 // if you want to change default view templates folder to another name. In the case, templates
@@ -26,21 +28,21 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'Andrew Mead'
+        name: 'Daredevil'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
-        name: 'Andrew Mead'
+        name: 'Daredevil'
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
-        name: 'Andrew Mead'
+        name: 'Daredevil'
     })
 })
 
@@ -91,7 +93,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404 help',
-        name: 'Andrew Mead',
+        name: 'Daredevil',
         errorMessage: 'Help article not found'
     })
 })    
@@ -99,7 +101,7 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Andrew Mead',
+        name: 'Daredevil',
         errorMessage: 'Page not found'
     })
 })
@@ -109,7 +111,7 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
 
