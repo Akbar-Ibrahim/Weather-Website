@@ -10,7 +10,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Unable to find forecast for that location. Try another search.', undefined)
         } else {
-            callback(undefined, body.daily.data[0].summary + ' it is currently ' + body.currently.temperature + ' and the temperature is ' + body.currently.temperature)
+            callback(undefined, body.daily.data[0].summary + ' it is currently ' + body.currently.temperature + ' and visibility is at ' + body.currently.visibility)
         }
     })
 
